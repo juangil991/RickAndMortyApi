@@ -25,7 +25,7 @@ export const fetchGetCharacterError=(error)=>(dispatch)=>{
 const fetchCharacters=()=>{
     return (dispatch)=>{
         dispatch(fetchGetCharacterRequest());
-        Axios.get(`https://rickandmortyapi.com/api/character`)
+        Axios.get(`https://rickandmortyapi.com/api/character?page=2`)
              .then(response=>{
                  dispatch(fetchGetCharacterSuccess([response.data.results]))
              })

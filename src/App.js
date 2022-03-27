@@ -5,14 +5,14 @@ import {Provider} from 'react-redux';
 import store from "./config/Store"
 import EpisodesComponent from './components/Episodes';
 import CharactersComponent from './components/Characters'
+import RoutesPath from './routes';
 
 
 function App() {
   return (
     <Provider store={store}>
       <div className='block'>
-        <NavBarComponent/>
-        <CharactersComponent/>
+        <RoutesPath/>
       </div>
       
     </Provider>

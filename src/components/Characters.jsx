@@ -26,7 +26,7 @@ const CharactersComponent = (props) => {
                     return (
                         <div key={index} className="column is-one-quarter">
                             <div className='card'>
-                                <header className="card-header has-background-info">
+                                <header className="card-header has-background-info" >
                                     <p className="card-header-title" >
                                         {x.name}
                                     </p>
