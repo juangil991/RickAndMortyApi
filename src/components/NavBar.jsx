@@ -25,7 +25,7 @@ const NavBarComponent = () => {
             <div className="navbar-menu">
                 <div className='navbar-brand'>
                     <h1 class="navbar-item is-6">
-                        PEPINILLOS RICK
+                        PICKLE RICK
                     </h1>
                 </div>
             </div>
@@ -44,10 +44,11 @@ const NavBarComponent = () => {
                             SPECIES
                         </a>
                         <div className="navbar-dropdown">
+                        <NavLink to="/">
                             <a className="navbar-item"
                             onClick={()=>{
                                 dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Human") )
-                            }}>
+                                }}>
                                 HUMAN
                             </a>
                             <a className="navbar-item"
@@ -86,6 +87,7 @@ const NavBarComponent = () => {
                             }}>
                                 ANIMAL
                             </a>
+                            </NavLink>
                         </div>
                     </div>
                 </div>
