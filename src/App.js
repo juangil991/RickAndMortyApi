@@ -4,6 +4,7 @@ import NavBarComponent from './components/NavBar';
 import {Provider} from 'react-redux';
 import store from "./config/Store"
 import EpisodesComponent from './components/Episodes';
+import CharactersComponent from './components/Characters'
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <Provider store={store}>
       <div className='block'>
         <NavBarComponent/>
-        <EpisodesComponent/>
+        <CharactersComponent/>
       </div>
       
     </Provider>

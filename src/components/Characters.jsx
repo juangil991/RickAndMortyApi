@@ -1,43 +1,39 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-import fetchEpisodes from '../actions/getEpisodesAction'
+import fetchCharacters from '../actions/getCharacterAction'
 import { useDispatch } from 'react-redux';
-import Logo from '../img/Logo.png'
 
 
-const EpisodesComponent = (props) => {
+
+const CharactersComponent = (props) => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(fetchEpisodes())
+        dispatch(fetchCharacters())
     }, []);
 
-    const episodes = props.episodes;
-    const episode = episodes.map(result => { return result.map(e => { return e }) })
+    const characters = props.characters;
+    const character = characters.map(result => { return result.map(e => { return e }) })
     return (<>
         <br />
         <div className='is-size-3 has-text-weight-semibold '>
-            EPISODES:
+            CHARACTERS:
         </div>
         <br />
         <div className="columns is-multiline is-mobile">
-            {episode.map((e) => {
+            {character.map((e) => {
                 return e.map((x,index) => {
                     return (
                         <div key={index} className="column is-one-quarter">
                             <div className='card'>
                                 <header className="card-header has-background-info">
                                     <p className="card-header-title" >
-                                        {"Episodio : " + x.id}
+                                        { x.name}
                                     </p>
                                 </header>
                                 <div className="card-content has-background-white-ter has-text-weight-medium has-text-grey">
                                     <div className="content">
-                                        {"Name : " + x.name}
-                                        <br />
-                                        {"Episode : " + x.episode}
-                                        <br />
-                                        {"Air Date : " + x.air_date}
+                                      <img src={x.image} alt={x.name} />
                                     </div>
                                 </div>
                             </div>
@@ -51,8 +47,8 @@ const EpisodesComponent = (props) => {
 
 const stateMapToPros = state => {
     return {
-        episodes: state.getEpisodes.response
+        characters: state.getCharacters.response
     }
 }
 
-export default connect(stateMapToPros)(EpisodesComponent)
+export default connect(stateMapToPros)(CharactersComponent)

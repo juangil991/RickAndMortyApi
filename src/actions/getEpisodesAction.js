@@ -17,7 +17,7 @@ export const fetchGetAllSuccess=(Episodes)=>(dispatch)=>{
 export const fetchGetAllError=(error)=>(dispatch)=>{
     dispatch({
         type: ActionType.GET_ALL_FAILURE,
-        result:error
+        result: error
     })
 }
 
@@ -29,7 +29,7 @@ const fetchEpisodes=()=>{
                  dispatch(fetchGetAllSuccess([response.data.results]))
              })
              .catch(error=>{
-                 dispatch(fetchGetAllError('No se pudo aceder a la lista'))
+                 dispatch(fetchGetAllError('No se encontraron los episodios'))
              });
     }
 }

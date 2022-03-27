@@ -1,8 +1,9 @@
 import {combineReducers} from "redux";
 import getEpisodes from "../reducers/Episodes"
+import getCharacters from "../reducers/Characters"
 
 const rootReducers=combineReducers({
-    getEpisodes,
+    getEpisodes, getCharacters
 });
 
 export default rootReducers;

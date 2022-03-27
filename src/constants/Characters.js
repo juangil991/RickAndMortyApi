@@ -1,0 +1,8 @@
+
+export const Characters_ActionType = {
+    GET_CHARACTERS_REQUEST:'GET_CHARACTERS_REQUEST',
+    GET_CHARACTERS_SUCCESS:'GET_CHARACTERS_SUCCESS',
+    GET_CHARACTERS_FAILURE:'GET_CHARACTERS_FAILURE'
+ }
+  
+ export default Characters_ActionType;

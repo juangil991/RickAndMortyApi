@@ -1,30 +1,29 @@
 
-import Episode_ActionType from '../constants/Episodes';
+import Characters_ActionType from '../constants/Characters';
 
 
 const INITIAL_STATE={
     loading:false, 
     response: [[[]]],
     error:'',
-    requesting:false
 }
 
-const getEpisodes=(state= INITIAL_STATE,action)=>{
+const getCharacters=(state= INITIAL_STATE,action)=>{
     switch(action.type){
-        case Episode_ActionType.GET_ALL_REQUEST:
+        case Characters_ActionType.GET_CHARACTERS_REQUEST:
             return{
                 ...state,
                 loading:true,
                 requesting:false
             }
-        case Episode_ActionType.GET_ALL_SUCCESS:
+        case Characters_ActionType.GET_CHARACTERS_SUCCESS:
             return{
                 loading:true,
                 response: action.result,
                 error:'',
                 requesting:true
             }
-        case Episode_ActionType.GET_ALL_FAILURE:
+        case Characters_ActionType.GET_CHARACTERS_FAILURE:
             return{
                 loading: false,
                 response:[],
@@ -36,4 +35,4 @@ const getEpisodes=(state= INITIAL_STATE,action)=>{
 
 }
 
-export default getEpisodes;
+export default getCharacters;
