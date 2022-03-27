@@ -2,9 +2,10 @@ import Axios from 'axios'
 import {Characters_ActionType as ActionType} from '../constants/Characters'
 
 
-export const fetchGetCharacterRequest=()=>(dispatch)=>{
+export const fetchGetCharacterRequest=(url)=>(dispatch)=>{
     dispatch({
-        type: ActionType.GET_CHARACTERS_REQUEST
+        type: ActionType.GET_CHARACTERS_REQUEST,
+        result: url
     })
 }
 
@@ -22,10 +23,10 @@ export const fetchGetCharacterError=(error)=>(dispatch)=>{
     })
 }
 
-const fetchCharacters=()=>{
+const fetchCharacters=(url)=>{
     return (dispatch)=>{
-        dispatch(fetchGetCharacterRequest());
-        Axios.get(`https://rickandmortyapi.com/api/character?page=2`)
+        dispatch(fetchGetCharacterRequest(url));
+        Axios.get(url)
              .then(response=>{
                  dispatch(fetchGetCharacterSuccess([response.data.results]))
              })

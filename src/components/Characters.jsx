@@ -2,14 +2,16 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import fetchCharacters from '../actions/getCharacterAction'
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 
 
 const CharactersComponent = (props) => {
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchCharacters())
+    useEffect(() => { 
+        console.log(props.url)
+        dispatch(fetchCharacters(props.url))
     }, []);
 
     const characters = props.characters;
@@ -32,9 +34,13 @@ const CharactersComponent = (props) => {
                                     </p>
                                 </header>
                                 <div className="card-image">
+                                    <a>
+                                    <NavLink to='/episodes'>
                                     <figure className="image is-4by3">
                                         <img src={x.image} alt={x.name} />
                                     </figure>
+                                    </NavLink>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +53,8 @@ const CharactersComponent = (props) => {
 
 const stateMapToPros = state => {
     return {
-        characters: state.getCharacters.response
+        characters: state.getCharacters.response,
+        url:state.getCharacters.url
     }
 }
 

@@ -1,14 +1,20 @@
 import React from 'react';
 import { NavLink, useLocation,Router } from 'react-router-dom';
 import Logo from '../img/Logo.png'
+import { useDispatch } from 'react-redux';
+import fetchCharacters from '../actions/getCharacterAction'
 
 
 const NavBarComponent = () => {
+    const dispatch = useDispatch();
     return (
         <nav className="navbar is-link" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
             <NavLink to="/">
-                <a className="navbar-item">
+                <a className="navbar-item"
+                 onClick={()=>{
+                    dispatch(fetchCharacters("https://rickandmortyapi.com/api/character") )
+                }}>
                     <img src={Logo} style={{
                         maxWidth: 200,
                         maxHeight: 200
@@ -38,25 +44,46 @@ const NavBarComponent = () => {
                             SPECIES
                         </a>
                         <div className="navbar-dropdown">
-                            <a className="navbar-item">
+                            <a className="navbar-item"
+                            onClick={()=>{
+                                dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Human") )
+                            }}>
                                 HUMAN
                             </a>
-                            <a className="navbar-item">
+                            <a className="navbar-item"
+                            onClick={()=>{
+                                dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Alien") )
+                            }}>
                                 ALIEN
                             </a>
-                            <a className="navbar-item">
+                            <a className="navbar-item"
+                            onClick={()=>{
+                                dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Unknown") )
+                            }}>
                                 UNKNOWN
                             </a>
-                            <a className="navbar-item">
+                            <a className="navbar-item"
+                            onClick={()=>{
+                                dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Humanoid") )
+                            }}>
                                 HUMANOID
                             </a>
-                            <a className="navbar-item">
+                            <a className="navbar-item"
+                            onClick={()=>{
+                                dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Poopybutthole") )
+                            }}>
                                 POOPYBUTHOLE
                             </a>
-                            <a className="navbar-item">
+                            <a className="navbar-item"
+                            onClick={()=>{
+                                dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Mythological Creature") )
+                            }}>
                                 MYTHOLOGICAL CREATURE
                             </a>
-                            <a className="navbar-item">
+                            <a className="navbar-item"
+                            onClick={()=>{
+                                dispatch(fetchCharacters("https://rickandmortyapi.com/api/character/?species=Animal") )
+                            }}>
                                 ANIMAL
                             </a>
                         </div>

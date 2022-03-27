@@ -6,6 +6,7 @@ const INITIAL_STATE={
     loading:false, 
     response: [[[]]],
     error:'',
+    url:"https://rickandmortyapi.com/api/character"
 }
 
 const getCharacters=(state= INITIAL_STATE,action)=>{
@@ -14,10 +15,12 @@ const getCharacters=(state= INITIAL_STATE,action)=>{
             return{
                 ...state,
                 loading:true,
-                requesting:false
+                url:action.result
+                
             }
         case Characters_ActionType.GET_CHARACTERS_SUCCESS:
             return{
+                ...state,
                 loading:true,
                 response: action.result,
                 error:'',
