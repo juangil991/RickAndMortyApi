@@ -22,19 +22,19 @@ const CharactersComponent = (props) => {
         <br />
         <div className="columns is-multiline is-mobile">
             {character.map((e) => {
-                return e.map((x,index) => {
+                return e.map((x, index) => {
                     return (
                         <div key={index} className="column is-one-quarter">
                             <div className='card'>
                                 <header className="card-header has-background-info">
                                     <p className="card-header-title" >
-                                        { x.name}
+                                        {x.name}
                                     </p>
                                 </header>
-                                <div className="card-content has-background-white-ter has-text-weight-medium has-text-grey">
-                                    <div className="content">
-                                      <img src={x.image} alt={x.name} />
-                                    </div>
+                                <div className="card-image">
+                                    <figure className="image is-4by3">
+                                        <img src={x.image} alt={x.name} />
+                                    </figure>
                                 </div>
                             </div>
                         </div>

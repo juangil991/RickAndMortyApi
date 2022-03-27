@@ -17,10 +17,10 @@ const NavBarComponent = () => {
             <div id="navbarBasicExample" className="navbar-end">
                 <div className="navbar-start">
                     <a className="navbar-item">
-                        PERSONAJES
+                        EPISODES
                     </a>
                     <a className="navbar-item">
-                        FAVORITOS
+                        FAVORITES
                     </a>
 
                     <div className="navbar-item has-dropdown is-hoverable">
