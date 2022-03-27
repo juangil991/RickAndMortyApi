@@ -26,7 +26,7 @@ const fetchEpisodes=()=>{
         dispatch(fetchGetAllRequest());
         Axios.get(`https://rickandmortyapi.com/api/episode`)
              .then(response=>{
-                 dispatch(fetchGetAllSuccess([response.data]))
+                 dispatch(fetchGetAllSuccess([response.data.results]))
              })
              .catch(error=>{
                  dispatch(fetchGetAllError('No se pudo aceder a la lista'))

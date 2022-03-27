@@ -3,33 +3,37 @@ import Episode_ActionType from '../constants/Episodes';
 
 
 const INITIAL_STATE={
-    loading:false,
-    episodes: [],
-    error:''
+    loading:false, 
+    response: [[[]]],
+    error:'',
+    requesting:false
 }
 
-const episodes=(state= INITIAL_STATE,action)=>{
+const getEpisodes=(state= INITIAL_STATE,action)=>{
     switch(action.type){
         case Episode_ActionType.GET_ALL_REQUEST:
             return{
                 ...state,
-                loading:true
+                loading:true,
+                requesting:false
             }
         case Episode_ActionType.GET_ALL_SUCCESS:
             return{
                 loading:true,
-                episodes: action.result,
-                error:''
+                response: action.result,
+                error:'',
+                requesting:true
             }
         case Episode_ActionType.GET_ALL_FAILURE:
             return{
                 loading: false,
-                episodes:[],
-                error:action.result
+                response:[],
+                error:action.result,
+                requesting:false
             }
         default: return state;
     }
 
 }
 
-export default episodes;
+export default getEpisodes;

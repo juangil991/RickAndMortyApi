@@ -5,13 +5,17 @@ import {Provider} from 'react-redux';
 import store from "./config/Store"
 import EpisodesComponent from './components/Episodes';
 
+
 function App() {
   return (
     <Provider store={store}>
-      <NavBarComponent/>
-       <EpisodesComponent/>
+      <div className='block'>
+        <NavBarComponent/>
+        <EpisodesComponent/>
+      </div>
+      
     </Provider>
   );
-}
+} 
 
 export default App;
