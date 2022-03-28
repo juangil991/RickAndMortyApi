@@ -23,6 +23,7 @@ const NavBarComponent = () => {
             </NavLink>
             </div>
             <div className="navbar-menu" >
+
             </div>
             <div id='newFuente5' className="navbar-menu">
                 <div className="navbar-start">
@@ -37,11 +38,11 @@ const NavBarComponent = () => {
                         FAVORITES
                     </a>
                     </NavLink>
-                    <div className="navbar-item has-dropdown is-hoverable is-size-4">
+                    <div className="navbar-item has-dropdown is-hoverable has-background-link is-size-4">
                         <a className="navbar-link">
                             SPECIES
                         </a>
-                        <div className="navbar-dropdown">
+                        <div className="navbar-dropdown has-background-grey-lighter">
                         <NavLink to="/">
                             <a className="navbar-item"
                             onClick={()=>{
