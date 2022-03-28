@@ -2,21 +2,21 @@ import Axios from 'axios'
 import {Characters_ActionType as ActionType} from '../constants/Characters'
 
 
-export const fetchGetCharacterRequest=(url)=>(dispatch)=>{
+export const fetchGetCharacterRequest=(url)=>async(dispatch)=>{
     dispatch({
         type: ActionType.GET_CHARACTERS_REQUEST,
         result: url
     })
 }
 
-export const fetchGetCharacterSuccess=(Characters)=>(dispatch)=>{
+export const fetchGetCharacterSuccess=(Characters)=>async(dispatch)=>{
     dispatch({
         type: ActionType.GET_CHARACTERS_SUCCESS,
         result: Characters
     })
 }
 
-export const fetchGetCharacterError=(error)=>(dispatch)=>{
+export const fetchGetCharacterError=(error)=>async(dispatch)=>{
     dispatch({
         type: ActionType.GET_CHARACTERS_FAILURE,
         result:error

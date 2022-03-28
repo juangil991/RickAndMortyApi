@@ -24,7 +24,7 @@ const NavBarComponent = () => {
             </div>
             <div className="navbar-menu">
                 <div className='navbar-brand'>
-                    <h1 class="navbar-item is-6">
+                    <h1 class="navbar-item is-size-2">
                         PICKLE RICK
                     </h1>
                 </div>
@@ -33,13 +33,16 @@ const NavBarComponent = () => {
                 <div className="navbar-start">
                    
                     <NavLink to="/episodes">
-                    <a className="navbar-item has-text-white" style={{top:'25px'}}>EPISODES</a>
+                    <h1 className="navbar-item has-text-white is-size-4" style={{top:'19px'}}>
+                        EPISODES
+                        </h1>
                     </NavLink>
-                    
-                    <a className="navbar-item">
+                    <NavLink to="/favorite">
+                    <a className="navbar-item has-text-white is-size-4" style={{top:'19px'}}>
                         FAVORITES
                     </a>
-                    <div className="navbar-item has-dropdown is-hoverable">
+                    </NavLink>
+                    <div className="navbar-item has-dropdown is-hoverable is-size-4">
                         <a className="navbar-link">
                             SPECIES
                         </a>

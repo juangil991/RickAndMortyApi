@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import fetchCharacters from '../actions/getCharacterAction'
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { addFavorite } from '../actions/getFavoritesAction';
 
 
 
@@ -32,6 +33,11 @@ const CharactersComponent = (props) => {
                                     <p className="card-header-title" >
                                         {x.name}
                                     </p>
+                                    <button
+                                    onClick={()=>{
+                                        dispatch(props.addFavorite(x.name)) 
+                                      }}
+                                    >Favorito</button>
                                 </header>
                                 <div className="card-image">
                                     <a>
@@ -58,4 +64,8 @@ const stateMapToPros = state => {
     }
 }
 
-export default connect(stateMapToPros)(CharactersComponent)
+const mapDispatchToProps= () => ({
+    addFavorite,
+  })
+
+export default connect(stateMapToPros,mapDispatchToProps)(CharactersComponent)

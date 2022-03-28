@@ -1,20 +1,20 @@
 import Axios from 'axios'
 import {Episodes_ActionType as ActionType} from '../constants/Episodes'
 
-export const fetchGetAllRequest=()=>(dispatch)=>{
+export const fetchGetAllRequest=()=>async(dispatch)=>{
     dispatch({
         type: ActionType.GET_ALL_REQUEST
     })
 }
 
-export const fetchGetAllSuccess=(Episodes)=>(dispatch)=>{
+export const fetchGetAllSuccess=(Episodes)=>async(dispatch)=>{
     dispatch({
         type: ActionType.GET_ALL_SUCCESS,
         result: Episodes
     })
 }
 
-export const fetchGetAllError=(error)=>(dispatch)=>{
+export const fetchGetAllError=(error)=>async(dispatch)=>{
     dispatch({
         type: ActionType.GET_ALL_FAILURE,
         result: error
