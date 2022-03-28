@@ -1,11 +1,15 @@
-import React from 'react';
+import React from 'react'
 import { NavLink, useLocation,Router } from 'react-router-dom';
 import Logo from '../img/Logo.png'
 import { useDispatch } from 'react-redux';
 import fetchCharacters from '../actions/getCharacterAction'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react';
 
 
 const NavBarComponent = () => {
+    const [search, setSearch] = useState();
     const dispatch = useDispatch();
     return (
         <nav className="navbar is-link" role="navigation" aria-label="main navigation" style={{color:'yellow'}}>
@@ -98,13 +102,23 @@ const NavBarComponent = () => {
                         class="input is-rounded ds-input" type="text" placeholder="Search characters" autocomplete="off"
                         spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false"
                         aria-label="search input" aria-owns="algolia-autocomplete-listbox-0" dir="auto"
-                        style={{position:'relative',verticalAlign:'buttom', top:'30px',right:'20px'}}/>
+                        style={{position:'relative',verticalAlign:'buttom', top:'30px',right:'20px'}}
+                        onChange={(e)=>{
+                            setSearch(e.target.value)
+                          
+                        }}/>
                 </span>
                 <span class="icon is-small is-left">
                     <i class="fas fa-search"></i>
                 </span>
             </p>
         </div>
+        <NavLink to='/'>
+        <button className='button is-link'style={{top:'30px',right:'20px'}}
+       onClick={()=>{ dispatch(fetchCharacters(`https://rickandmortyapi.com/api/character/?name=${search}`) )}}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} style={{fontSize:'2.1em'}}/>
+        </button>
+        </NavLink>
         </nav>
 
 
