@@ -19,7 +19,7 @@ const getFavorites=(state= INITIAL_STATE,action)=>{
             return{
             
                 favorites:state.favorites.filter((e)=>{
-                    return e != action.result
+                    return e.id != action.isFavorite
                 }), 
                 isFavorite:state.isFavorite.filter((z)=>{
                     return z != action.isFavorite

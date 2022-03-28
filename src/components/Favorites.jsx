@@ -22,6 +22,12 @@ const FavoritesComponent = (props) => {
                 return (
                     <div key={index} className="column is-one-quarter">
                         <div className='card'>
+                        <header className="card-header has-background-info" >
+                                    <p className="card-header-title" >
+                                        {e.name}
+                                    </p> 
+                        </header>
+                                    
                             <div className="card-image">
                                 <a>
                                     <figure className="image is-4by3">

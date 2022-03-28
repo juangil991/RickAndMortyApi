@@ -35,7 +35,7 @@ const CharactersComponent = (props) => {
                                     <p className="card-header-title" >
                                         {x.name}
                                     </p> 
-                                    {!inFavorite.includes(x.id)&&<button class="button is-info" style={{top:'0em',color:'blueviolet'}}
+                                    {!inFavorite.includes(x.id)&&<button class="button is-info" style={{top:'0em',color:'aquamarine'}}
                                           onClick={()=>{
                                         
                                               dispatch(addFavorite(x));
@@ -43,7 +43,7 @@ const CharactersComponent = (props) => {
                                             <FontAwesomeIcon icon={faHeart} style={{fontSize:'2.1em'}}/>
                                         </button>}
                                        
-                                       {inFavorite.includes(x.id)&&<button class="button is-info" style={{top:'0em',color:'aquamarine'}}
+                                       {inFavorite.includes(x.id)&&<button class="button is-info" style={{top:'0em',color:'blueviolet'}}
                                           onClick={()=>{
                                           
                                               dispatch(removeFavorite(x));
