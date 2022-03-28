@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Link del video explicacion: https://www.mediafire.com/file/boxh2s0i2e4b6o7/Explicacion_Api_Rick_and_Morty.mp4/file
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
