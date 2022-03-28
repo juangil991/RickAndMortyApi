@@ -9,7 +9,8 @@ import { NavLink } from 'react-router-dom';
 const FavoritesComponent = (props) => {
 
 
-    const favorites = props.name;
+
+    const favorites = props.favorite;
     return (<>
         <br />
         <div className='is-size-3 has-text-weight-semibold '>
@@ -17,25 +18,28 @@ const FavoritesComponent = (props) => {
         </div>
         <br />
         <div className="columns is-multiline is-mobile">
-                    <div className="column is-one-quarter">
+            {favorites.map((e, index) => {
+                return (
+                    <div key={index} className="column is-one-quarter">
                         <div className='card'>
                             <div className="card-image">
                                 <a>
                                     <figure className="image is-4by3">
-                                        <img src="https://rickandmortyapi.com/api/character/avatar/40.jpeg" />
+                                        <img src={e.image} />
                                     </figure>
                                 </a>
                             </div>
                         </div>
                     </div>
                 )
+            })}
         </div>
     </>);
 }
 
 const stateMapToPros = state => {
     return {
-        name: state.getFavorites.name
+        favorite: state.getFavorites.favorites
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
 import fetchCharacters from '../actions/getCharacterAction'
 import { useDispatch } from 'react-redux';
@@ -8,7 +8,6 @@ import { addFavorite } from '../actions/getFavoritesAction';
 
 
 const CharactersComponent = (props) => {
-
     const dispatch = useDispatch();
     useEffect(() => { 
         console.log(props.url)
@@ -35,9 +34,9 @@ const CharactersComponent = (props) => {
                                     </p>
                                     <button
                                     onClick={()=>{
-                                        dispatch(props.addFavorite(x.name)) 
+                                        dispatch(props.addFavorite(x)) 
                                       }}
-                                    >Favorito</button>
+                                    >Favorito</button>   
                                 </header>
                                 <div className="card-image">
                                     <a>
@@ -60,7 +59,8 @@ const CharactersComponent = (props) => {
 const stateMapToPros = state => {
     return {
         characters: state.getCharacters.response,
-        url:state.getCharacters.url
+        url:state.getCharacters.url,
+        favorite: state.getFavorites.favorites
     }
 }
 
