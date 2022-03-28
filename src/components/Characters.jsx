@@ -10,9 +10,10 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 
 const CharactersComponent = (props) => {
+    const inFavorite=props.isFavorite;
     const dispatch = useDispatch();
     useEffect(() => {
-        console.log(props.url)
+        console.log(inFavorite)
         dispatch(fetchCharacters(props.url))
     }, []);
 
@@ -34,9 +35,21 @@ const CharactersComponent = (props) => {
                                     <p className="card-header-title" >
                                         {x.name}
                                     </p> 
-                                        <button class="button is-info" type='checkbox' style={{top:'0em',color:'blueviolet'}}>
+                                    {!inFavorite.includes(x.id)&&<button class="button is-info" style={{top:'0em',color:'blueviolet'}}
+                                          onClick={()=>{
+                                        
+                                              dispatch(addFavorite(x));
+                                          }}>
                                             <FontAwesomeIcon icon={faHeart} style={{fontSize:'2.1em'}}/>
-                                            </button>
+                                        </button>}
+                                       
+                                       {inFavorite.includes(x.id)&&<button class="button is-info" style={{top:'0em',color:'aquamarine'}}
+                                          onClick={()=>{
+                                          
+                                              dispatch(removeFavorite(x));
+                                          }}>
+                                            <FontAwesomeIcon icon={faHeart} style={{fontSize:'2.1em'}}/>
+                                        </button>}
                                                     
                                 </header>
                                 <div className="card-image">
@@ -61,7 +74,8 @@ const stateMapToPros = state => {
     return {
         characters: state.getCharacters.response,
         url: state.getCharacters.url,
-        favorite: state.getFavorites.favorites
+        favorite: state.getFavorites.favorites,
+        isFavorite:state.getFavorites.isFavorite
     }
 }
 
