@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/RickAndMortyApi/static/css/main.0edadf6e.css",
+    "main.js": "/RickAndMortyApi/static/js/main.a26bae1f.js",
+    "static/media/Logo.png": "/RickAndMortyApi/static/media/Logo.fa42f10ce4dffd566fc4.png",
+    "index.html": "/RickAndMortyApi/index.html",
+    "main.0edadf6e.css.map": "/RickAndMortyApi/static/css/main.0edadf6e.css.map",
+    "main.a26bae1f.js.map": "/RickAndMortyApi/static/js/main.a26bae1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0edadf6e.css",
+    "static/js/main.a26bae1f.js"
+  ]
+}
