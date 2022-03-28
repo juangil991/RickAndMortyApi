@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#newFuente{
+  font-family:'Permanent Marker', cursive;
+}
+
+#newFuente2{
+  font-family: 'Qahiri', sans-serif;
+  font-size: '30px';
+ 
+}
+
+#newFuente3{
+  font-family: 'Pacifico', cursive;
+}
+
+#newFuente4{
+  font-family: 'Hurricane', cursive;
+  font-size:larger ;
+}
+
+#newFuente5{
+  font-family:'Rock 3D', cursive;
+}

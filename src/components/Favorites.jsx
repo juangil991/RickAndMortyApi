@@ -13,7 +13,7 @@ const FavoritesComponent = (props) => {
     const favorites = props.favorite;
     return (<>
         <br />
-        <div className='is-size-3 has-text-weight-semibold '>
+        <div className='is-size-3 has-text-weight-semibold' id='newFuente5' style={{color:'yellow'}}>
             FAVORITES CHARACTERS:
         </div>
         <br />

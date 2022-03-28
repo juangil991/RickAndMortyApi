@@ -16,11 +16,11 @@ const EpisodesComponent = (props) => {
     const episode = episodes.map(result => { return result.map(e => { return e }) })
     return (<>
         <br />
-        <div className='is-size-3 has-text-weight-semibold '>
+        <div className='is-size-3 has-text-weight-semibold ' id='newFuente5' style={{color:'yellow'}}>
             EPISODES:
         </div>
         <br />
-        <div className="columns is-multiline is-mobile">
+        <div className="columns is-multiline is-mobile" >
             {episode.map((e) => {
                 return e.map((x,index) => {
                     return (

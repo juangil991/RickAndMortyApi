@@ -8,7 +8,7 @@ import fetchCharacters from '../actions/getCharacterAction'
 const NavBarComponent = () => {
     const dispatch = useDispatch();
     return (
-        <nav className="navbar is-link" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-link" role="navigation" aria-label="main navigation" style={{color:'yellow'}}>
             <div className="navbar-brand">
             <NavLink to="/">
                 <a className="navbar-item"
@@ -22,14 +22,9 @@ const NavBarComponent = () => {
                 </a>
             </NavLink>
             </div>
-            <div className="navbar-menu">
-                <div className='navbar-brand'>
-                    <h1 class="navbar-item is-size-2">
-                        PICKLE RICK
-                    </h1>
-                </div>
+            <div className="navbar-menu" >
             </div>
-            <div className="navbar-menu">
+            <div id='newFuente5' className="navbar-menu">
                 <div className="navbar-start">
                    
                     <NavLink to="/episodes">

@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import fetchCharacters from '../actions/getCharacterAction'
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { addFavorite } from '../actions/getFavoritesAction';
+import { addFavorite, removeFavorite } from '../actions/getFavoritesAction';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 
 
 const CharactersComponent = (props) => {
     const dispatch = useDispatch();
-    useEffect(() => { 
+    useEffect(() => {
         console.log(props.url)
         dispatch(fetchCharacters(props.url))
     }, []);
@@ -18,7 +20,7 @@ const CharactersComponent = (props) => {
     const character = characters.map(result => { return result.map(e => { return e }) })
     return (<>
         <br />
-        <div className='is-size-3 has-text-weight-semibold '>
+        <div className='is-size-3 has-text-weight-semibold ' id='newFuente5' style={{color:'yellow'}}>
             CHARACTERS:
         </div>
         <br />
@@ -26,25 +28,24 @@ const CharactersComponent = (props) => {
             {character.map((e) => {
                 return e.map((x, index) => {
                     return (
-                        <div key={index} className="column is-one-quarter">
+                        <div key={index} className="column is-one-quarter" id='newFuente1'>
                             <div className='card'>
                                 <header className="card-header has-background-info" >
                                     <p className="card-header-title" >
                                         {x.name}
-                                    </p>
-                                    <button
-                                    onClick={()=>{
-                                        dispatch(props.addFavorite(x)) 
-                                      }}
-                                    >Favorito</button>   
+                                    </p> 
+                                        <button class="button is-info" type='checkbox' style={{top:'0em',color:'blueviolet'}}>
+                                            <FontAwesomeIcon icon={faHeart} style={{fontSize:'2.1em'}}/>
+                                            </button>
+                                                    
                                 </header>
                                 <div className="card-image">
                                     <a>
-                                    <NavLink to='/episodes'>
-                                    <figure className="image is-4by3">
-                                        <img src={x.image} alt={x.name} />
-                                    </figure>
-                                    </NavLink>
+                                        <NavLink to='/episodes'>
+                                            <figure className="image is-4by3">
+                                                <img src={x.image} alt={x.name} />
+                                            </figure>
+                                        </NavLink>
                                     </a>
                                 </div>
                             </div>
@@ -59,13 +60,13 @@ const CharactersComponent = (props) => {
 const stateMapToPros = state => {
     return {
         characters: state.getCharacters.response,
-        url:state.getCharacters.url,
+        url: state.getCharacters.url,
         favorite: state.getFavorites.favorites
     }
 }
 
-const mapDispatchToProps= () => ({
-    addFavorite,
-  })
+const mapDispatchToProps = () => ({
+    addFavorite, removeFavorite
+})
 
-export default connect(stateMapToPros,mapDispatchToProps)(CharactersComponent)
+export default connect(stateMapToPros, mapDispatchToProps)(CharactersComponent)

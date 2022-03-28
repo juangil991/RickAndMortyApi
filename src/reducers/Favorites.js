@@ -16,9 +16,10 @@ const getFavorites=(state= INITIAL_STATE,action)=>{
             }
         case Favorites_ActionType.REMOVE_FAVORITE:
             return{
-                ...state,
-                favorites:action.result
-                
+            
+                favorites:state.favorites.filter((e)=>{
+                    return e != action.result
+                })     
             }
         default: return state;
     }
